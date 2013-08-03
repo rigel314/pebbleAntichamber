@@ -41,9 +41,12 @@ void handle_second_tick(AppContextRef ctx, PebbleTickEvent* t)
 	setSegs(&bl[0], time.tm_hour);
 	setSegs(&bl[3], time.tm_min);
 	setSegs(&bl[6], time.tm_sec);
-	setSegs(&bl[8], time.tm_mon+1);
-	setSegs(&bl[11], time.tm_mday+1);
-	setSegs(&bl[14], (time.tm_year+1900)%100);
+
+	#if(DATE)
+		setSegs(&bl[8], time.tm_mon+1);
+		setSegs(&bl[11], time.tm_mday+1);
+		setSegs(&bl[14], (time.tm_year+1900)%100);
+	#endif
 }
 
 void handle_init(AppContextRef ctx)
@@ -61,19 +64,30 @@ void handle_init(AppContextRef ctx)
 	bcolon = &bs[10];
 	bdash = &bs[11];
 
-	for(i = 0; i < 8; i++)
-		bitmap_layer_init(&bl[i], GRect(18*i,(168/2)-35,18,30));
-	for(i = 8; i < 16; i++)
-		bitmap_layer_init(&bl[i], GRect(18*(i-8),(168/2)+5,18,30));
-	for(i = 0; i < 16; i++)
-		layer_add_child(&window.layer, &bl[i].layer);
+	#if(DATE)
+		for(i = 0; i < 8; i++)
+			bitmap_layer_init(&bl[i], GRect(18*i,(168/2)-35,18,30));
+		for(i = 8; i < 16; i++)
+			bitmap_layer_init(&bl[i], GRect(18*(i-8),(168/2)+5,18,30));
+		for(i = 0; i < 16; i++)
+			layer_add_child(&window.layer, &bl[i].layer);
+	#else
+		for(i = 0; i < 8; i++)
+		{
+			bitmap_layer_init(&bl[i], GRect(18*i,(168/2)-15,18,30));
+			layer_add_child(&window.layer, &bl[i].layer);
+		}
+	#endif
 
 	window_set_background_color(&window, GColorBlack);
 
 	bitmap_layer_set_bitmap(&bl[2], &bcolon->bmp);
 	bitmap_layer_set_bitmap(&bl[5], &bcolon->bmp);
-	bitmap_layer_set_bitmap(&bl[10], &bdash->bmp);
-	bitmap_layer_set_bitmap(&bl[13], &bdash->bmp);
+
+	#if(DATE)
+		bitmap_layer_set_bitmap(&bl[10], &bdash->bmp);
+		bitmap_layer_set_bitmap(&bl[13], &bdash->bmp);
+	#endif
 
 	handle_second_tick(ctx, NULL);
 
