@@ -1,67 +1,79 @@
-
-{"friendlyVersion": "0.1",
-	"versionDefName": "RES_FOR_ANTICHAMBER",
-	"media":
+{
+	"uuid": "1790F9FE-6171-4CE7-8FCB-C830326ACFA4",
+	"shortName": "Antichamber",
+	"longName": "Antichamber",
+	"companyName": "Computing Eureka",
+	"versionCode": 2,
+	"versionLabel": "2.0.0",
+	"watchapp": {
+		"watchface": true
+	},
+	"appKeys": {
+		"dummy": 0
+	},
+	"resources": {
+		"media":
 		[
 			{
 				"type": "png",
-				"defName": "IMAGE_0",
+				"name": "IMAGE_0",
 				"file": "images/0.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_1",
+				"name": "IMAGE_1",
 				"file": "images/1.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_2",
+				"name": "IMAGE_2",
 				"file": "images/2.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_3",
+				"name": "IMAGE_3",
 				"file": "images/3.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_4",
+				"name": "IMAGE_4",
 				"file": "images/4.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_5",
+				"name": "IMAGE_5",
 				"file": "images/5.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_6",
+				"name": "IMAGE_6",
 				"file": "images/6.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_7",
+				"name": "IMAGE_7",
 				"file": "images/7.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_8",
+				"name": "IMAGE_8",
 				"file": "images/8.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_9",
+				"name": "IMAGE_9",
 				"file": "images/9.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_colon",
+				"name": "IMAGE_colon",
 				"file": "images/colon.png"
 			},
 			{
 				"type": "png",
-				"defName": "IMAGE_dash",
+				"name": "IMAGE_dash",
 				"file": "images/dash.png"
 			}
 		]
+	}
 }
